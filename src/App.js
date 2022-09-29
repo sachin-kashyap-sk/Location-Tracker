@@ -1,6 +1,9 @@
+/* eslint-disable no-undef */
+// import Markers from "./marker";
 import React, { Component } from "react";
-import { Map, GoogleApiWrapper } from "google-maps-react";
-import Markers from "./marker";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import parking from "./Assets/ParkingLogo.png";
+
 class App extends Component {
   render() {
     return (
@@ -8,13 +11,26 @@ class App extends Component {
         <Map
           google={this.props.google}
           style={{ width: "100%", height: "100%" }}
-          zoom={10}
+          zoom={16}
           initialCenter={{
-            lat: 13.08268,
-            lng: 80.270721,
+            lat: 29.390945,
+            lng: 76.963501,
           }}
         >
-          <Markers />
+          {/* <Markers /> */}
+          <Marker
+            key="marker_1"
+            //  icon={{
+            // url: "",
+            //   anchor: new google.maps.Point(17, 46),
+            //   scaledSize: new google.maps.Size(37, 37),
+            // }}
+            icon={parking}
+            position={{
+              lat: 29.390945,
+              lng: 76.963501,
+            }}
+          />
         </Map>
       </div>
     );
